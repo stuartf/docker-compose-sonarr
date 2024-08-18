@@ -1,0 +1,14 @@
+services:
+  sonarr:
+    container_name: sonarr
+    image: ghcr.io/hotio/sonarr
+    ports:
+      - "8989:8989"
+    environment:
+      - PUID
+      - PGID
+      - UMASK=002
+      - TZ=America/New_York
+    volumes:
+      - ${CONFIG_PATH}:/config
+      - ${DATA_PATH}:/data
