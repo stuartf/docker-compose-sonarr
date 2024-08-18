@@ -36,3 +36,10 @@ services:
       - TZ=America/New_York
     volumes:
       - ${PROWLARR_CONFIG_PATH}:/config
+  flaresolverr:
+    container_name: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    ports:
+      - 8191:8191
+    environment:
+      - LOG_LEVEL=error
