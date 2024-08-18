@@ -22,3 +22,15 @@ services:
         - PGID
         - VPN_ENABLED=no
         - UMASK=002
+  prowlarr:
+    container_name: prowlarr
+    image: ghcr.io/hotio/prowlarr
+    ports:
+      - "9696:9696"
+    environment:
+      - PUID
+      - PGID
+      - UMASK=002
+      - TZ=America/New_York
+    volumes:
+      - ${PROWLARR_CONFIG_PATH}:/config
