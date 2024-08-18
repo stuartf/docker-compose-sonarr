@@ -12,3 +12,12 @@ services:
     volumes:
       - ${CONFIG_PATH}:/config
       - ${DATA_PATH}:/data
+  deluge:
+    image: binhex/arch-delugevpn
+    volumes:
+        - ${DELUGE_CONFIG_PATH}:/config
+        - ${TORRENT_PATH}:/data/torrents
+    environment:
+        - PUID
+        - PGID
+        - UMASK=002
