@@ -14,6 +14,8 @@ services:
       - ${DATA_PATH}:/data
   deluge:
     image: binhex/arch-delugevpn
+    ports: 
+      - "8112:8112"
     volumes:
         - ${DELUGE_CONFIG_PATH}:/config
         - ${TORRENT_PATH}:/data/torrents
