@@ -20,4 +20,5 @@ services:
     environment:
         - PUID
         - PGID
+        - VPN_ENABLED=no
         - UMASK=002
