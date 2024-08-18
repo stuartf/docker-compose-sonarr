@@ -13,18 +13,18 @@ services:
       - ${CONFIG_PATH}:/config
       - ${DATA_PATH}:/data
   deluge:
-    image: binhex/arch-delugevpn
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
     ports: 
       - "8112:8112"
       - "6881:6881"
       - "6881:6881/udp"
     volumes:
         - ${DELUGE_CONFIG_PATH}:/config
-        - ${TORRENT_PATH}:/data/torrents
+        - ${TORRENT_PATH}:/downloads
     environment:
         - PUID
         - PGID
-        - VPN_ENABLED=no
         - UMASK=002
   prowlarr:
     container_name: prowlarr
