@@ -21,7 +21,7 @@ services:
       - "6881:6881/udp"
     volumes:
         - ${DELUGE_CONFIG_PATH}:/config
-        - ${TORRENT_PATH}:/downloads
+        - ${TORRENT_PATH}:/data/torrents
     environment:
         - PUID
         - PGID
