@@ -10,7 +10,20 @@ services:
       - UMASK=002
       - TZ=America/New_York
     volumes:
-      - ${CONFIG_PATH}:/config
+      - ${SONARR_CONFIG_PATH}:/config
+      - ${DATA_PATH}:/data
+  radarr:
+    container_name: radarr
+    image: ghcr.io/hotio/radarr
+    ports:
+      - "7878:7878"
+    environment:
+      - PUID
+      - PGID
+      - UMASK=002
+      - TZ=America/New_York
+    volumes:
+      - ${RADARR_CONFIG_PATH}:/config
       - ${DATA_PATH}:/data
   deluge:
     image: lscr.io/linuxserver/deluge:latest
